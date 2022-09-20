@@ -19,12 +19,10 @@ export default function Contact() {
 
   return (
     <div id="contact">
-      <div>
-        <img key={contact.avatar} src={contact.avatar } />
+      <div className="">
+        <img className="object-cover w-full" key={contact.avatar} src={contact.avatar || null} />
       </div>
-      <h2>{contact.avatar}</h2>
-      
-
+     
       <div>
         <h1>
           {contact.first || contact.last ? (
