@@ -2,12 +2,15 @@ import React, { Children } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import Root,{ loader as rootLoader, action as rootAction } from "./routes/root";
+import Root, {
+  loader as rootLoader,
+  action as rootAction,
+} from "./routes/root";
 import ErrorPage from "./error-page";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
-import Contact,{ loader as contactLoader } from "./routes/contact";
-import EditContact,{action as editAction} from "./routes/edit";
-
+import Contact, { loader as contactLoader } from "./routes/contact";
+import EditContact, { action as editAction } from "./routes/edit";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const router = createBrowserRouter([
   {
@@ -26,15 +29,16 @@ const router = createBrowserRouter([
         path: "contacts/:contactId/edit",
         element: <EditContact />,
         loader: contactLoader,
-        action: editAction
-
-      }
+        action: editAction,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ChakraProvider>
+      <RouterProvider router={router} />
+    </ChakraProvider>
   </React.StrictMode>
 );
