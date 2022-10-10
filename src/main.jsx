@@ -10,28 +10,33 @@ import ErrorPage from "./error-page";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import Contact, { loader as contactLoader } from "./routes/contact";
 import EditContact, { action as editAction } from "./routes/edit";
+import About from './routes/about'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/router",
     element: <Root />,
     errorElement: <ErrorPage />,
     loader: rootLoader,
     action: rootAction,
     children: [
       {
-        path: "/contacts/:contactId",
+        path: "router/contacts/:contactId",
         element: <Contact />,
         loader: contactLoader,
       },
       {
-        path: "contacts/:contactId/edit",
+        path: "router/contacts/:contactId/edit",
         element: <EditContact />,
         loader: contactLoader,
         action: editAction,
       },
     ],
   },
+  {
+    path: "/about",
+    element: <About />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
