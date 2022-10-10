@@ -10,7 +10,9 @@ import ErrorPage from "./error-page";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import Contact, { loader as contactLoader } from "./routes/contact";
 import EditContact, { action as editAction } from "./routes/edit";
-import About from './routes/about'
+import About from "./routes/about";
+import Navbar from "./components/Navbar";
+import { BrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -35,12 +37,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/about",
-    element: <About />
-  }
+    element: <About />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
