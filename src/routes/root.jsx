@@ -1,6 +1,6 @@
 import { Link, Outlet, useLoaderData, Form } from "react-router-dom";
 import { getContacts, createContact } from "../contacts";
-import Navbar from '../../components/Navbar'
+import Navbar from '../components/Navbar'
 
 export async function action() {
   await createContact();
