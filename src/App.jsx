@@ -1,24 +1,24 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { Route, Routes } from "react-router-dom/dist";
 import About from "./routes/about";
-import { Link, Outlet } from "react-router-dom";
+import { Link,Outlet } from "react-router-dom";
 import Root from "./routes/root";
 import Navbar from "./components/Navbar";
+import Posts from "./routes/Posts";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function App() {
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Root />} />
           <Route path="/about" element={<About />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
-    </div>
+    </>
   );
 }
 
@@ -39,4 +39,15 @@ function Layout() {
   );
 }
 
-export default App;
+function NoMatch() {
+  return (
+    <div>
+      <h2>Nothing to see here!</h2>
+      <p>
+        <Link to="/">Go to the home page</Link>
+      </p>
+    </div>
+  );
+}
+
+

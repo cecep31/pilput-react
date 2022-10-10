@@ -8,6 +8,7 @@ export default function Navbar() {
         <Link className="bg-purple-400 hover:bg-purple-500 hover:text-white px-2 rounded-sm" to={"/"}>Home</Link>
         <Link className="bg-green-400 hover:bg-green-500 hover:text-white px-2 rounded-sm ml-3" to={"/about"}>About</Link>
         <Link className="bg-blue-400 hover:bg-blue-500 hover:text-white px-2 rounded-sm ml-3" to={"/contact"}>Contact</Link>
+        <Link className="bg-yellow-400 hover:bg-yellow-500 hover:text-white px-2 rounded-sm ml-3" to={"/posts"}>Posts</Link>
       </div>
     </>
   );
